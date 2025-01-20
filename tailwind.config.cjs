@@ -4,6 +4,9 @@ module.exports = {
   content: ['./src/**/*.{html,js,svelte,ts}', './node_modules/flowbite-svelte/**/*.{html,js,svelte,ts}'],
   darkMode: 'class', // Adjusted to 'class' for dark mode control
   theme: {
+    backgroundImage: {
+      'custom-bg': "url('/bg-image.svg')",
+    },
     screens: {
       'xs': '375px', // 'xs' breakpoint for 375px and above
       'sm': '640px',

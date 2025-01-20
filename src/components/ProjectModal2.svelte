@@ -1,7 +1,7 @@
 <script>
   import "../assets/stack.svg";
 
-  let isOpen = true;
+  let isOpen = false;
 
   const toggleModal = () => {
     isOpen = !isOpen;

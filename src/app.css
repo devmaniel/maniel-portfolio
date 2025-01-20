@@ -4,4 +4,8 @@
 
 body {
     font-family: 'Roboto Slab Variable', serif;
+    background-image: url('/bg-image.svg');
+    background-repeat: no-repeat;
+    background-size: cover; /* Adjust if you want the image to cover the entire viewport */
+    background-position: center; /* Centers the image */
   }
