@@ -6,7 +6,7 @@
   } from "flowbite-svelte-icons";
 </script>
 
-<main class="px-5 pt-5 pb-5">
+<div class="px-5 pt-5 pb-5">
   <!-- Title Section -->
   <h1 class="text-white text-4xl pt-6 font-bold mb-6 xs:mb-2">
     Want to reach out? <br /> Let's connect and make it happen!
@@ -36,7 +36,7 @@
       melco-maniel-gulbe
     </li>
   </ul>
-</main>
+</div>
 
 <style>
   /* Add custom styles here if necessary */

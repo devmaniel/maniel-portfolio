@@ -2,7 +2,7 @@
   // Component logic goes here
 </script>
 
-<main>
+<div>
   <div class="flex items-center gap-4 xs:gap-2 xs:ml-[-15px]" >
     <div
       class="rounded-full bg-red-400 flex justify-center items-center
@@ -13,7 +13,7 @@
       Aspiring <br /> Web Developer
     </h1>
   </div>
-</main>
+</div>
 
 <style>
   /* Component-specific styles go here */

@@ -29,7 +29,7 @@
   };
 </script>
 
-<main class="p-5">
+<div class="p-5">
   <h1 class="text-white text-xl font-semibold mb-4">Projects</h1>
 
   
@@ -41,7 +41,7 @@
   </div>
 
   
-</main>
+</div>
 
 <style>
   /* Custom styles for project list rendering */

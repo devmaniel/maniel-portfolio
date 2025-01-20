@@ -26,7 +26,7 @@
   ];
 </script>
 
-<main class="h-[350px] overflow-y-scroll">
+<div class="h-[350px] overflow-y-scroll">
   <h1 class="text-white text-xl font-semibold mb-4 px-5 pt-5">Education</h1>
   <div class="px-10 mt-5">
     <Timeline>
@@ -41,4 +41,4 @@
       {/each}
     </Timeline>
   </div>
-</main>
+</div>

@@ -13,7 +13,7 @@
   ];
 </script>
 
-<main class="p-5">
+<div class="p-5">
   <h1 class="text-white text-xl font-semibold mb-4">Tech stack</h1>
   <div class="flex flex-wrap gap-2">
     {#each techStack as tech}
@@ -24,4 +24,4 @@
       </div>
     {/each}
   </div>
-</main>
+</div>

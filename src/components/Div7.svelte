@@ -23,7 +23,7 @@
   ];
 </script>
 
-<main class="p-5">
+<div class="p-5">
   <h1 class="text-white text-xl font-semibold mb-4">Certificates</h1>
   <ul class="list-disc pl-5 leading-7">
     {#each certificates as certificate}
@@ -38,4 +38,4 @@
       </li>
     {/each}
   </ul>
-</main>
+</div>
