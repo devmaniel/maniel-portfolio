@@ -1,7 +1,7 @@
 <script>
   const navigateToModokard = () => {
     window.location.href = '/modokard';
-    window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to the top
+    
   };
 </script>
 
