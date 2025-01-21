@@ -28,7 +28,7 @@
       tutorials, gamified progression, and a strong focus on sustainability.
     </p>
 
-    <h1 class="pt-5 text-gray text-sm sm:text-base">
+    <h1 class="pt-5 text-gray text-sm sm:text-base mb-5">
       Tech stack: React, Laravel, TailwindCSS, Shadcdn, MySQL
     </h1>
 

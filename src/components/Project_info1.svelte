@@ -32,7 +32,7 @@
       effective, engaging study sessions of learners.
     </p>
 
-    <h1 class="pt-5 text-gray text-sm sm:text-base">
+    <h1 class="pt-5 text-gray text-sm sm:text-base mb-5">
       Tech stack: React, Node.js (Express), TailwindCSS, Shadcdn, MySQL
     </h1>
 
