@@ -4,7 +4,7 @@
 
 </script>
 
-<div class="px-5 text-focus-in">
+<div class="px-5 w-full h-full text-focus-in">
    <h1 class="
    
     text-gray font-bold text-3xl

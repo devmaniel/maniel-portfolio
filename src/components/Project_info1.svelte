@@ -1,9 +1,14 @@
 <script>
   import ProjectModal from "./ProjectModal.svelte";
+
+  
+  import { Button, Modal } from 'flowbite-svelte';
+  let defaultModal = false;
+
 </script>
 
-<div class="w-full mt-8 flex flex-col sm:flex-row justify-between">
-  <div class="info w-full">
+<div class="w-full mt-8">
+  <div class="info h-full w-full">
     <div
       class="h-[270px] w-full bg-cover bg-center bg-primary rounded-lg mt-5 mb-4 text-center flex items-center justify-center text-white font-bold
       text-4xl"
@@ -34,6 +39,7 @@
     <ProjectModal />
   </div>
 </div>
+
 
 <style>
 </style>
