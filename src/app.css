@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'BLMelody';
+    src: url('/src/assets/font/BLMelody-Extralight.woff2') format('woff2'),
+         url('/src/assets/font/BLMelody-Extralight.woff') format('woff');
+    font-weight: 200; /* Tailwind's `font-extralight` */
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'BLMelody';
+    src: url('/src/assets/font/BLMelody-Light.woff2') format('woff2'),
+         url('/src/assets/font/BLMelody-Light.woff') format('woff');
+    font-weight: 300; /* Tailwind's `font-light` */
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'BLMelody';
+    src: url('/src/assets/font/BLMelody-Regular.woff2') format('woff2'),
+         url('/src/assets/font/BLMelody-Regular.woff') format('woff');
+    font-weight: 400; /* Tailwind's `font-normal` */
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'BLMelody';
+    src: url('/src/assets/font/BLMelody-Medium.woff2') format('woff2'),
+         url('/src/assets/font/BLMelody-Medium.woff') format('woff');
+    font-weight: 500; /* Tailwind's `font-medium` */
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'BLMelody';
+    src: url('/src/assets/font/BLMelody-Bold.woff2') format('woff2'),
+         url('/src/assets/font/BLMelody-Bold.woff') format('woff');
+    font-weight: 700; /* Tailwind's `font-bold` */
+    font-style: normal;
+  }
+
+body {
+  font-family: "BLMelody", sans-serif;
+
+}
