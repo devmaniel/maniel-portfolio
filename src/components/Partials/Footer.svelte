@@ -45,12 +45,13 @@
         melco-maniel
       </a>
       <a
-        href="/public/melco-maniel-gulbe.pdf"
-        download="melco-maniel-gulbe.pdf"
-        class="text-secondary underline"
-      >
-        Download my resume
-      </a>
+      href="/melco-maniel-gulbe.pdf"
+      download="melco-maniel-gulbe.pdf"
+      class="text-secondary underline"
+    >
+      Download my resume
+    </a>
+    
     </nav>
 
     <!-- Copyright -->
