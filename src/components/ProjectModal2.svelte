@@ -1,6 +1,6 @@
 <script>
   const navigateToModokard = () => {
-    window.location.href = '/recyclecraft';
+    window.location.href = '/#/recyclecraft';
   };
 </script>
 

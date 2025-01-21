@@ -1,6 +1,6 @@
 <script>
   const navigateToModokard = () => {
-    window.location.href = '/modokard';
+    window.location.href = '/#/modokard';
   };
 </script>
 
