@@ -45,7 +45,7 @@
         melco-maniel
       </a>
       <a
-        href="/publics/melco-maniel-gulbe.pdf"
+        href="/public/melco-maniel-gulbe.pdf"
         download="melco-maniel-gulbe.pdf"
         class="text-secondary underline"
       >
