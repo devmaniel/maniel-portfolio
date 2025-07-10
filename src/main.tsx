@@ -7,7 +7,7 @@ import App from "./App.tsx";
 import "./index.css"
 
 
-// Supports weights 100-900
+// @ts-ignore
 import '@fontsource-variable/dm-sans';
 
 
