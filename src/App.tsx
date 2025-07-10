@@ -30,6 +30,7 @@ import gdg_svg from "./assets/certificates icon/google-developers-svgrepo-com.sv
 import ff_svg from "./assets/certificates icon/ffdg_color.svg";
 
 import modokard_cover from "./assets/modokard-cover.png";
+import picture1 from "./assets/picture1.jpg";
 
 import modokard_slide_1 from "./assets/modokard/84222c70-6f0a-4806-8304-dec904692389-1.png";
 import modokard_slide_2 from "./assets/modokard/84222c70-6f0a-4806-8304-dec904692389-2.png";
@@ -118,6 +119,7 @@ function App() {
       Sample2,
       Sample3,
       Sample4,
+      picture1,
       modokard_slide_1,
       modokard_slide_2,
       modokard_slide_3,
