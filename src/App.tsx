@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-import "./App.css";
+import "./App.css"; // resolve naming problem
 import "./styles/grid-setup-desktop.css";
 import "./styles/grid-setup-tablet.css";
 import "./styles/grid-setup-mobile.css";
