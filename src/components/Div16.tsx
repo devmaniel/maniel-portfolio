@@ -1,4 +1,3 @@
-import React from "react";
 
 import Silk from "./Animations/Backgrounds/Silk/Silk";
 

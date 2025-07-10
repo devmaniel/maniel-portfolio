@@ -1,4 +1,3 @@
-import React from "react";
 
 import bb_cover from "../assets/brokencodebounty/brokencountbounty.png";
 

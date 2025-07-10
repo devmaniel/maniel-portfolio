@@ -1,4 +1,4 @@
-import React from "react";
+
 
 import modokard_cover from "../assets/modokard-cover.png";
 
