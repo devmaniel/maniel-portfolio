@@ -12,7 +12,11 @@ import React, {
   useMemo,
   useState,
 } from "react";
-import {
+
+import type { Transition } from "framer-motion";
+
+
+import  {
   motion,
   AnimatePresence,
   type VariantLabels,
