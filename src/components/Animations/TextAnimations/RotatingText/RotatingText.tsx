@@ -15,15 +15,15 @@ import React, {
 
 import type { Transition } from "framer-motion";
 
-
-import  {
+import {
   motion,
   AnimatePresence,
   type VariantLabels,
   type Target,
-  type AnimationControls,
   type TargetAndTransition,
 } from "framer-motion";
+
+import type { LegacyAnimationControls } from 'framer-motion';
 
 import "./RotatingText.css";
 
@@ -46,7 +46,7 @@ export interface RotatingTextProps
   texts: string[];
   transition?: Transition;
   initial?: boolean | Target | VariantLabels;
-  animate?: boolean | VariantLabels | AnimationControls | TargetAndTransition;
+  animate?: boolean | TargetAndTransition | VariantLabels | LegacyAnimationControls | undefined;
   exit?: Target | VariantLabels;
   animatePresenceMode?: "sync" | "wait";
   animatePresenceInitial?: boolean;
@@ -89,11 +89,12 @@ const RotatingText = forwardRef<RotatingTextRef, RotatingTextProps>(
 
     const splitIntoCharacters = (text: string): string[] => {
       if (typeof Intl !== "undefined") {
-         const segmenter = new (Intl as any).Segmenter("en", { granularity: "grapheme" });
+        const segmenter = new (Intl as any).Segmenter("en", {
+          granularity: "grapheme",
+        });
         return Array.from(
           segmenter.segment(text),
-          
-          (segment) => segment.segment
+          (segment: any) => segment.segment as string // Add type assertion here
         );
       }
       return Array.from(text);
