@@ -2,7 +2,7 @@
 import bb_cover from "../assets/brokencodebounty/brokencountbounty.png";
 
 // @ts-ignore
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "../components/ui/badge";
 
 import { BiLogoYoutube } from "react-icons/bi";
 import { FaGlobe } from "react-icons/fa";

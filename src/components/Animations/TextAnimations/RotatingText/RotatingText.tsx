@@ -21,7 +21,6 @@ import  {
   AnimatePresence,
   type VariantLabels,
   type Target,
-  // @ts-ignore
   type AnimationControls,
   type TargetAndTransition,
 } from "framer-motion";
@@ -93,7 +92,7 @@ const RotatingText = forwardRef<RotatingTextRef, RotatingTextProps>(
          const segmenter = new (Intl as any).Segmenter("en", { granularity: "grapheme" });
         return Array.from(
           segmenter.segment(text),
-          // @ts-ignore
+          
           (segment) => segment.segment
         );
       }
