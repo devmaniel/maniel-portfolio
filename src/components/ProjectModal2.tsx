@@ -30,7 +30,7 @@ const ProjectModal2 = ({ onClose }: ProjectModalProps) => {
          
 
           {/* Modal Content */}
-          <div className="w-[300px] h-[500px]  md:w-[700px] md:h-[750px] lg:w-[1100px] lg:h-[900px] overflow-hidden overflow-y-auto mt-5 bg-white p-5 flex flex-col gap-5 rounded-lg">
+          <div className="w-[300px] h-[600px]  md:w-[700px] md:h-[750px] lg:w-[1100px] lg:h-[900px] overflow-hidden overflow-y-auto mt-5 bg-white p-5 flex flex-col gap-5 rounded-lg">
             <p
               className="text-md text-[#FF474C] cursor-pointer hover:underline"
               onClick={onClose}

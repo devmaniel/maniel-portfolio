@@ -59,43 +59,43 @@ const projects = [
 const certificates = [
   {
     certificate_img: aws_svg,
-    certificate_name: "Amazon Junior Software Developer",
-    certificate_link: "dummy",
+    certificate_name: "Progrramming with Java",
+    certificate_link: "https://www.coursera.org/account/accomplishments/verify/95WSACF3PHDQ",
   },
   {
     certificate_img: ibm_svg,
     certificate_name: "Git and Github Essentials",
-    certificate_link: "dummy",
+    certificate_link: "https://www.credly.com/badges/4a8f384f-e3a9-49ec-a37a-bf864cd7d527/linked_in_profile",
   },
   {
     certificate_img: aws_svg,
     certificate_name: "AWS Cloud Technical Essentials",
-    certificate_link: "dummy",
+    certificate_link: "https://www.coursera.org/account/accomplishments/records/YMMPWZEM9AXC",
   },
   {
     certificate_img: google_svg,
     certificate_name: "Google UX Design Professional Certificate (v2)",
-    certificate_link: "dummy",
+    certificate_link: "https://www.credly.com/badges/3a5c5516-9b49-41ee-b1e8-32fb2e8de150/linked_in_profile",
   },
   {
     certificate_img: ibm_svg,
     certificate_name: "Introduction to DevOps",
-    certificate_link: "dummy",
+    certificate_link: "https://www.coursera.org/account/accomplishments/verify/MJHYLQ1PLOA0",
   },
   {
-    certificate_img: ibm_svg,
-    certificate_name: "Introduction to Software Engineering",
-    certificate_link: "dummy",
+    certificate_img: aws_svg,
+    certificate_name: "AWS Cloud Technical Essentialsg",
+    certificate_link: "https://www.linkedin.com/in/melco-maniel/details/certifications/1752165696214/single-media-viewer/?profileId=ACoAAFCUA3IBV0tT_SeoOtnmN0wsZyE3WGCMJm0",
   },
   {
     certificate_img: gdg_svg,
     certificate_name: "InnOlympics: GDSC PLM Hackathon 2025",
-    certificate_link: "dummy",
+    certificate_link: "https://www.linkedin.com/in/melco-maniel/details/certifications/1741044781658/single-media-viewer/?profileId=ACoAAFCUA3IBV0tT_SeoOtnmN0wsZyE3WGCMJm0",
   },
   {
     certificate_img: ff_svg,
     certificate_name: "FlutterFlow PH HackFest 2024",
-    certificate_link: "dummy",
+    certificate_link: "https://www.linkedin.com/in/melco-maniel/details/certifications/1734669641858/single-media-viewer/?profileId=ACoAAFCUA3IBV0tT_SeoOtnmN0wsZyE3WGCMJm0",
   },
 ];
 
