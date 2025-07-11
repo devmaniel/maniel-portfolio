@@ -40,6 +40,9 @@ import modokard_slide_5 from "./assets/modokard/84222c70-6f0a-4806-8304-dec90469
 import modokard_slide_6 from "./assets/modokard/84222c70-6f0a-4806-8304-dec904692389-6.png";
 import modokard_slide_7 from "./assets/modokard/84222c70-6f0a-4806-8304-dec904692389-7.png";
 import modokard_slide_8 from "./assets/modokard/84222c70-6f0a-4806-8304-dec904692389-8.png";
+import Starry_Night from "./assets/Starry_Night_Over_the_Rhone.jpg";
+
+
 
 import bb_cover from "./assets/brokencodebounty/brokencountbounty.png";
 
@@ -111,6 +114,7 @@ function App() {
   useEffect(() => {
     const allImages = [
       samplebg,
+      Starry_Night,
       modokardpreview,
       bbpreview,
       modokard_cover,
