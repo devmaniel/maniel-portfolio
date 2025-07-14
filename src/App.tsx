@@ -59,8 +59,8 @@ const projects = [
 const certificates = [
   {
     certificate_img: aws_svg,
-    certificate_name: "Progrramming with Java",
-    certificate_link: "https://www.coursera.org/account/accomplishments/verify/95WSACF3PHDQ",
+    certificate_name: "Amazon Junior Software Developer",
+    certificate_link: "https://coursera.org/share/01178ce3db2c9ec64c4457828e91a3a2",
   },
   {
     certificate_img: ibm_svg,
