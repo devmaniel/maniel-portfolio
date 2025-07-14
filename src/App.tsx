@@ -151,7 +151,7 @@ function App() {
     // Show loading for at least 5 seconds
     const delay = setTimeout(() => {
       setShowLoading(false);
-    }, 5000);
+    }, 2000);
 
     return () => clearTimeout(delay);
   }, []);

@@ -4,8 +4,8 @@ import RotatingText from "../Animations/TextAnimations/RotatingText/RotatingText
 const LoadingPage = () => {
   return (
     <>
-      <div className="lg:h-[500px] lg:w-[700px] md:h-[450px] md:w-[450px] h-[350px] w-[250px]  flex flex-col lg:gap-[30px] md:gap-[50px] gap-[30px] justify-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 ">
-        <div className="flex justify-center lg:h-300px lg:w-700px md:w-[450px] h-[350px] h-[250px] w-[250px]">
+      <div className="lg:h-[500px] lg:w-[700px] md:h-[550px] md:w-[450px] items-center h-[350px] w-[250px]  flex flex-col lg:gap-[30px] md:gap-[50px] gap-[30px] justify-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 ">
+        <div className="flex justify-center lg:h-[300px] lg:w-[650px] md:w-[450px] w-[250px]">
           <Cubes
             gridSize={10}
             maxAngle={60}
