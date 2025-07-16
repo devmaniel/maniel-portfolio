@@ -84,8 +84,8 @@ const certificates = [
   },
   {
     certificate_img: aws_svg,
-    certificate_name: "AWS Cloud Technical Essentialsg",
-    certificate_link: "https://www.linkedin.com/in/melco-maniel/details/certifications/1752165696214/single-media-viewer/?profileId=ACoAAFCUA3IBV0tT_SeoOtnmN0wsZyE3WGCMJm0",
+    certificate_name: "Generative AI in Software Development",
+    certificate_link: "https://coursera.org/share/0d50f4eaa0972ec3cf5f2cf9f982065f",
   },
   {
     certificate_img: gdg_svg,
