@@ -7,6 +7,7 @@ import "./styles/grid-setup-tablet.css";
 import "./styles/grid-setup-mobile.css";
 
 // components and modals
+import DarkVeil from "./components/DarkVeil";
 import Div1 from "./components/Div1";
 import Div2 from "./components/Div2";
 import Div3 from "./components/Div3";
@@ -14,9 +15,11 @@ import Div4 from "./components/Div4";
 import DivProjects from "./components/DivProjects";
 import DivCertificates from "./components/DivCertificates";
 import Div16 from "./components/Div16";
-import ProjectModal1 from "./components/ProjectModal1";
+
 import ProjectModal2 from "./components/ProjectModal2";
-import ProjectModal3 from "./components/ProjectModal3";
+import ProjectModal1 from "./components/ProjectModal1";
+import ProjectModal4 from "./components/ProjectModal4";
+
 import LoadingPage from "./components/Loading/LoadingPage";
 
 // assets
@@ -28,9 +31,10 @@ import aws_svg from "./assets/certificates icon/amazon-2-logo-svgrepo-com.svg";
 import google_svg from "./assets/certificates icon/google-2015-logo-svgrepo-com.svg";
 import gdg_svg from "./assets/certificates icon/google-developers-svgrepo-com.svg";
 import ff_svg from "./assets/certificates icon/ffdg_color.svg";
+import florville_preview from "./assets/florville/florville-small.png";
 
 import modokard_cover from "./assets/modokard-cover.png";
-import picture1 from "./assets/picture1.jpg";
+import picture1 from "./assets/photos/picture1.jpg";
 
 import modokard_slide_1 from "./assets/modokard/84222c70-6f0a-4806-8304-dec904692389-1.png";
 import modokard_slide_2 from "./assets/modokard/84222c70-6f0a-4806-8304-dec904692389-2.png";
@@ -52,6 +56,7 @@ import Sample3 from "./assets/brokencodebounty/Sample 4.png";
 import Sample4 from "./assets/brokencodebounty/Sample 5.png";
 
 const projects = [
+  { image: florville_preview, title: "Flòrville" },
   { image: modokardpreview, title: "Modokard" },
   { image: bbpreview, title: "BrokenCode.Bounty" },
 ];
@@ -100,9 +105,9 @@ const certificates = [
 ];
 
 const modalComponents = {
-  1: ProjectModal1,
-  2: ProjectModal2,
-  3: ProjectModal3,
+  1: ProjectModal4,
+  2: ProjectModal1,
+  3: ProjectModal2,
 };
 
 function App() {
@@ -163,6 +168,19 @@ function App() {
 
   return (
     <>
+      {/* White Veil Background */}
+      <div className="fixed inset-0 z-0 w-screen h-screen" style={{ filter: 'invert(1)' }}>
+        <DarkVeil 
+          hueShift={210}
+          noiseIntensity={0.02}
+          scanlineIntensity={0.1}
+          speed={0.3}
+          scanlineFrequency={0.5}
+          warpAmount={0.5}
+          resolutionScale={1}
+        />
+      </div>
+
       {/* AnimatePresence handles exit animation */}
       <AnimatePresence mode="wait">
         {shouldShowLoading && (
@@ -184,7 +202,7 @@ function App() {
       </AnimatePresence>
 
       {!shouldShowLoading && (
-        <main>
+        <main className="relative z-10">
           <div className="grid-container">
             <Div1 />
             <Div2 />

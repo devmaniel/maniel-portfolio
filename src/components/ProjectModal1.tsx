@@ -32,11 +32,16 @@ const ProjectModal1 = ({ onClose }: ProjectModalProps) => {
           <div className="w-[300px] h-[600px]  md:w-[700px] md:h-[750px] lg:w-[1100px] lg:h-[900px] overflow-hidden overflow-y-auto mt-5 bg-white p-5 flex flex-col gap-5 rounded-l">
             <p className="text-md text-[#FF474C] cursor-pointer hover:underline" onClick={onClose}>Close</p>
 
-            <img
-              src={modokard_cover}
-              alt={"modokard_cover"}
-              className="h-[300px] w-full object-fit rounded-lg aspect-3/2"
-            />
+            <div className="relative">
+              <img
+                src={modokard_cover}
+                alt={"modokard_cover"}
+                className="h-[300px] w-full object-fit rounded-lg aspect-3/2"
+              />
+              <span className="absolute top-2 left-2 rounded-md bg-[#007AFF] px-2 py-1 text-xs font-semibold uppercase tracking-wide text-white">
+                Web Project
+              </span>
+            </div>
 
             <h1 className="text-4xl font-bold">Project Name: Modokard</h1>
 
@@ -69,52 +74,92 @@ const ProjectModal1 = ({ onClose }: ProjectModalProps) => {
               </p>
             </div>
 
-            <img
-              src={modokard_slide_1}
-              alt={"84222c70-6f0a-4806-8304-dec904692389-1.png"}
-              className="h-[300px] lg:h-[550px] w-full object-fill shadow-xl rounded-lg aspect-3/2"
-            />
+            <div className="relative">
+              <img
+                src={modokard_slide_1}
+                alt={"84222c70-6f0a-4806-8304-dec904692389-1.png"}
+                className="h-[300px] lg:h-[550px] w-full object-fill shadow-xl rounded-lg aspect-3/2"
+              />
+              <span className="absolute top-2 left-2 rounded-md bg-[#007AFF] px-2 py-1 text-xs font-semibold uppercase tracking-wide text-white">
+                Web Project
+              </span>
+            </div>
 
-            <img
-              src={modokard_slide_2}
-              alt={"84222c70-6f0a-4806-8304-dec904692389-1.png"}
-              className="h-[300px] lg:h-[550px] w-full object-fill shadow-xl rounded-lg aspect-3/2"
-            />
+            <div className="relative">
+              <img
+                src={modokard_slide_2}
+                alt={"84222c70-6f0a-4806-8304-dec904692389-1.png"}
+                className="h-[300px] lg:h-[550px] w-full object-fill shadow-xl rounded-lg aspect-3/2"
+              />
+              <span className="absolute top-2 left-2 rounded-md bg-[#007AFF] px-2 py-1 text-xs font-semibold uppercase tracking-wide text-white">
+                Web Project
+              </span>
+            </div>
 
-            <img
-              src={modokard_slide_3}
-              alt={"84222c70-6f0a-4806-8304-dec904692389-1.png"}
-              className="h-[300px] lg:h-[550px] w-full object-fill shadow-xl rounded-lg aspect-3/2"
-            />
+            <div className="relative">
+              <img
+                src={modokard_slide_3}
+                alt={"84222c70-6f0a-4806-8304-dec904692389-1.png"}
+                className="h-[300px] lg:h-[550px] w-full object-fill shadow-xl rounded-lg aspect-3/2"
+              />
+              <span className="absolute top-2 left-2 rounded-md bg-[#007AFF] px-2 py-1 text-xs font-semibold uppercase tracking-wide text-white">
+                Web Project
+              </span>
+            </div>
 
-            <img
-              src={modokard_slide_4}
-              alt={"84222c70-6f0a-4806-8304-dec904692389-1.png"}
-              className="h-[300px] lg:h-[550px] w-full object-fill shadow-xl rounded-lg aspect-3/2"
-            />
-            <img
-              src={modokard_slide_5}
-              alt={"84222c70-6f0a-4806-8304-dec904692389-1.png"}
-              className="h-[300px] lg:h-[550px] w-full object-fill shadow-xl rounded-lg aspect-3/2"
-            />
+            <div className="relative">
+              <img
+                src={modokard_slide_4}
+                alt={"84222c70-6f0a-4806-8304-dec904692389-1.png"}
+                className="h-[300px] lg:h-[550px] w-full object-fill shadow-xl rounded-lg aspect-3/2"
+              />
+              <span className="absolute top-2 left-2 rounded-md bg-[#007AFF] px-2 py-1 text-xs font-semibold uppercase tracking-wide text-white">
+                Web Project
+              </span>
+            </div>
+            <div className="relative">
+              <img
+                src={modokard_slide_5}
+                alt={"84222c70-6f0a-4806-8304-dec904692389-1.png"}
+                className="h-[300px] lg:h-[550px] w-full object-fill shadow-xl rounded-lg aspect-3/2"
+              />
+              <span className="absolute top-2 left-2 rounded-md bg-[#007AFF] px-2 py-1 text-xs font-semibold uppercase tracking-wide text-white">
+                Web Project
+              </span>
+            </div>
 
-            <img
-              src={modokard_slide_6}
-              alt={"84222c70-6f0a-4806-8304-dec904692389-1.png"}
-              className="h-[300px] lg:h-[550px] w-full object-fill shadow-xl rounded-lg aspect-3/2"
-            />
+            <div className="relative">
+              <img
+                src={modokard_slide_6}
+                alt={"84222c70-6f0a-4806-8304-dec904692389-1.png"}
+                className="h-[300px] lg:h-[550px] w-full object-fill shadow-xl rounded-lg aspect-3/2"
+              />
+              <span className="absolute top-2 left-2 rounded-md bg-[#007AFF] px-2 py-1 text-xs font-semibold uppercase tracking-wide text-white">
+                Web Project
+              </span>
+            </div>
 
-            <img
-              src={modokard_slide_7}
-              alt={"84222c70-6f0a-4806-8304-dec904692389-1.png"}
-              className="h-[300px] lg:h-[550px] w-full object-fill shadow-xl rounded-lg aspect-3/2"
-            />
+            <div className="relative">
+              <img
+                src={modokard_slide_7}
+                alt={"84222c70-6f0a-4806-8304-dec904692389-1.png"}
+                className="h-[300px] lg:h-[550px] w-full object-fill shadow-xl rounded-lg aspect-3/2"
+              />
+              <span className="absolute top-2 left-2 rounded-md bg-[#007AFF] px-2 py-1 text-xs font-semibold uppercase tracking-wide text-white">
+                Web Project
+              </span>
+            </div>
 
-            <img
-              src={modokard_slide_8}
-              alt={"84222c70-6f0a-4806-8304-dec904692389-1.png"}
-              className="h-[300px] lg:h-[550px] w-full object-fill shadow-xl rounded-lg aspect-3/2"
-            />
+            <div className="relative">
+              <img
+                src={modokard_slide_8}
+                alt={"84222c70-6f0a-4806-8304-dec904692389-1.png"}
+                className="h-[300px] lg:h-[550px] w-full object-fill shadow-xl rounded-lg aspect-3/2"
+              />
+              <span className="absolute top-2 left-2 rounded-md bg-[#007AFF] px-2 py-1 text-xs font-semibold uppercase tracking-wide text-white">
+                Web Project
+              </span>
+            </div>
           </div>
         </div>
       </div>
