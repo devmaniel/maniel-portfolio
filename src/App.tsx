@@ -19,6 +19,7 @@ import Div16 from "./components/Div16";
 import ProjectModal2 from "./components/ProjectModal2";
 import ProjectModal1 from "./components/ProjectModal1";
 import ProjectModal4 from "./components/ProjectModal4";
+import ProjectModal5 from "./components/ProjectModal5";
 
 import LoadingPage from "./components/Loading/LoadingPage";
 
@@ -31,7 +32,10 @@ import aws_svg from "./assets/certificates icon/amazon-2-logo-svgrepo-com.svg";
 import google_svg from "./assets/certificates icon/google-2015-logo-svgrepo-com.svg";
 import gdg_svg from "./assets/certificates icon/google-developers-svgrepo-com.svg";
 import ff_svg from "./assets/certificates icon/ffdg_color.svg";
+import nasa_logo from "./assets/certificates/nasa-space-apps-challege-card-logo.png";
+import nasa_cert from "./assets/certificates/nasa-space-apps-challenge.png";
 import florville_preview from "./assets/florville/florville-small.png";
+import ft_preview from "./assets/finance-tracker-web/finance-smaller-card.png";
 
 import modokard_cover from "./assets/modokard-cover.png";
 import picture1 from "./assets/photos/picture1.jpg";
@@ -56,12 +60,21 @@ import Sample3 from "./assets/brokencodebounty/Sample 4.png";
 import Sample4 from "./assets/brokencodebounty/Sample 5.png";
 
 const projects = [
-  { image: florville_preview, title: "Flòrville" },
-  { image: modokardpreview, title: "Modokard" },
-  { image: bbpreview, title: "BrokenCode.Bounty" },
+  { image: ft_preview, title: "Finance Tracker Web", isUpcoming: false },
+  { image: florville_preview, title: "Flòrville", isUpcoming: false },
+  { image: modokardpreview, title: "Modokard", isUpcoming: false },
+  { image: bbpreview, title: "BrokenCode.Bounty", isUpcoming: false },
+  { image: "", title: "Upcoming", isUpcoming: true },
+  { image: "", title: "Upcoming", isUpcoming: true },
 ];
 
 const certificates = [
+  {
+    certificate_img: nasa_logo,
+    certificate_name: "NASA Space Apps Challenge 2025",
+    certificate_link: nasa_cert,
+    isFull: true,
+  },
   {
     certificate_img: aws_svg,
     certificate_name: "Amazon Junior Software Developer",
@@ -88,11 +101,6 @@ const certificates = [
     certificate_link: "https://www.coursera.org/account/accomplishments/verify/MJHYLQ1PLOA0",
   },
   {
-    certificate_img: aws_svg,
-    certificate_name: "Generative AI in Software Development",
-    certificate_link: "https://coursera.org/share/0d50f4eaa0972ec3cf5f2cf9f982065f",
-  },
-  {
     certificate_img: gdg_svg,
     certificate_name: "InnOlympics: GDSC PLM Hackathon 2025",
     certificate_link: "https://www.linkedin.com/in/melco-maniel/details/certifications/1741044781658/single-media-viewer/?profileId=ACoAAFCUA3IBV0tT_SeoOtnmN0wsZyE3WGCMJm0",
@@ -105,9 +113,10 @@ const certificates = [
 ];
 
 const modalComponents = {
-  1: ProjectModal4,
-  2: ProjectModal1,
-  3: ProjectModal2,
+  1: ProjectModal5,
+  2: ProjectModal4,
+  3: ProjectModal1,
+  4: ProjectModal2,
 };
 
 function App() {
@@ -211,12 +220,16 @@ function App() {
 
             <div className="blue-row">
               {projects.map((project, idx) => (
-                <div className={`item glass item${5 + idx}`} key={idx}>
+                <div
+                  className={`item glass${project.isUpcoming ? " upcoming-card" : ""}`}
+                  key={idx}
+                >
                   <DivProjects
                     project_image={project.image}
                     project_title={project.title}
                     project_id={idx + 1}
                     openModal={openModal}
+                    isUpcoming={project.isUpcoming}
                   />
                 </div>
               ))}
@@ -231,6 +244,7 @@ function App() {
                 <DivCertificates
                   certificate_img={cert.certificate_img}
                   certificate_name={cert.certificate_name}
+                  isFull={cert.isFull}
                 />
               </div>
             ))}

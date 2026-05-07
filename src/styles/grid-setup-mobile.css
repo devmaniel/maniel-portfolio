@@ -17,9 +17,13 @@
     grid-column: 1;
   }
 
-  /* Force .blue-row to behave as grid children */
+  /* Blue section: single-column internal grid */
   .grid-container > .blue-row {
-    display: contents !important;
+    display: grid !important;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    grid-row: 5;
+    width: 300px;
   }
 
   /* Black section */
@@ -42,33 +46,22 @@
     grid-row: 4;
   }
 
-  /* Blue section: 3 full-width rows */
-  .item5 {
-    grid-row: 5;
-  }
-  .item6 {
-    grid-row: 6;
-  }
-  .item7 {
-    grid-row: 7;
-  }
-
   /* Red section: 4 items, 1 per row */
   .item8 {
-    grid-row: 8;
+    grid-row: 6;
   }
   .item9 {
-    grid-row: 9;
+    grid-row: 7;
   }
   .item10 {
-    grid-row: 10;
+    grid-row: 8;
   }
   .item11 {
-    grid-row: 11;
+    grid-row: 9;
   }
 
   /* Yellow section */
   .item16 {
-    grid-row: 12;
+    grid-row: 10;
   }
 }
