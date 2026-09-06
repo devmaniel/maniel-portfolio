@@ -1,39 +1,87 @@
-import Cubes from "../Animations/Animations/Cubes/Cubes";
-import RotatingText from "../Animations/TextAnimations/RotatingText/RotatingText";
+import { useEffect, useRef, useState } from "react";
+import TextLoop from "../Animations/TextAnimations/TextLoop/TextLoop";
+import type { TextLoopDirection } from "../Animations/TextAnimations/TextLoop/TextLoop";
+
+const MOBILE_MAX_WIDTH = 767;
+const TABLET_MAX_WIDTH = 1023;
+
+// TextLoop renders a 1200x520 viewBox at width:100%/height:auto, so most of each
+// SVG is transparent padding around a centered wave. The ribbons are overlapped
+// with a negative margin rather than cropped -- cropping is what produced the
+// flat cut-off edges, since any wrapper shorter than the crest slices the curve.
+const VIEW_W = 1200;
+const VIEW_H = 520;
+
+const LOOP_SETTINGS = {
+  mobile: { fontSize: 74, ribbonWidth: 128, curviness: 70, spacing: 150 },
+  tablet: { fontSize: 52, ribbonWidth: 96, curviness: 80, spacing: 240 },
+  desktop: { fontSize: 46, ribbonWidth: 86, curviness: 80, spacing: 320 },
+} as const;
+
+type Breakpoint = keyof typeof LOOP_SETTINGS;
+
+const RIBBONS: {
+  separator: string;
+  direction: TextLoopDirection;
+  speed: number;
+  ribbonColor: string;
+}[] = [
+  { separator: "✦", direction: "forward", speed: 120, ribbonColor: "#007AFF" },
+  { separator: "★", direction: "reverse", speed: 95, ribbonColor: "#FF4D6D" },
+];
+
+const getBreakpoint = (width: number): Breakpoint => {
+  if (width <= MOBILE_MAX_WIDTH) return "mobile";
+  if (width <= TABLET_MAX_WIDTH) return "tablet";
+  return "desktop";
+};
 
 const LoadingPage = () => {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const [width, setWidth] = useState(0);
+
+  useEffect(() => {
+    const measure = () => setWidth(containerRef.current?.clientWidth ?? window.innerWidth);
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, []);
+
+  const { fontSize, ribbonWidth, curviness, spacing } = LOOP_SETTINGS[getBreakpoint(width || window.innerWidth)];
+
+  // Rendered SVG height; the gap between ribbon centerlines is `spacing`.
+  const svgHeight = (width * VIEW_H) / VIEW_W;
+  const overlap = Math.round(spacing - svgHeight);
+
   return (
-    <>
-      <div className="lg:h-[500px] lg:w-[700px] md:h-[550px] md:w-[450px] items-center h-[350px] w-[250px]  flex flex-col lg:gap-[30px] md:gap-[50px] gap-[30px] justify-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 ">
-        <div className="flex justify-center lg:h-[300px] lg:w-[650px] md:w-[450px] w-[250px]">
-          <Cubes
-            gridSize={10}
-            maxAngle={60}
-            radius={4}
-            borderStyle="1px solid #000000"
-            faceColor="#007AFF"
-            rippleColor="#A34FA6"
-            rippleSpeed={1.5}
-            autoAnimate={true}
-            rippleOnClick={true}
-          />
-        </div>
-
-
-        <RotatingText
-          texts={["Loading...", "Keep Waiting", "Cooking 🧑‍🍳", "Rendering!"]}
-          mainClassName="px-2 sm:px-2 md:px-3  font-semibold text-4xl text-black overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
-          staggerFrom={"last"}
-          initial={{ y: "100%" }}
-          animate={{ y: 0 }}
-          exit={{ y: "-120%" }}
-          staggerDuration={0.025}
-          splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
-          transition={{ type: "spring", damping: 30, stiffness: 400 }}
-          rotationInterval={2000}
-        />
-      </div>
-    </>
+    <div ref={containerRef} className="flex h-full w-full flex-col items-center justify-center overflow-hidden">
+      {width > 0 &&
+        RIBBONS.map((ribbon, index) => (
+          <div
+            key={ribbon.ribbonColor}
+            className="w-full shrink-0"
+            style={{ marginTop: index === 0 ? 0 : overlap }}
+          >
+            <TextLoop
+              text="devmaniel"
+              shape="wave"
+              speed={ribbon.speed}
+              direction={ribbon.direction}
+              separator={ribbon.separator}
+              curviness={curviness}
+              fontSize={fontSize}
+              fontWeight={800}
+              letterSpacing={2}
+              uppercase
+              color="#ffffff"
+              ribbon
+              ribbonColor={ribbon.ribbonColor}
+              ribbonWidth={ribbonWidth}
+              pauseOnHover={false}
+            />
+          </div>
+        ))}
+    </div>
   );
 };
 

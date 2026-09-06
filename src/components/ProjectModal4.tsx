@@ -3,7 +3,7 @@ import fv_cover from "../assets/florville/florville.png";
 
 import { Badge } from "./ui/badge";
 
-import { SiCanva } from "react-icons/si";
+import { Presentation } from "lucide-react";
 import { FaGlobe } from "react-icons/fa";
 
 
@@ -61,13 +61,13 @@ const ProjectModal4 = ({ onClose }: ProjectModalProps) => {
                 </a>
               </Badge>
 
-              <Badge className="bg-violet-500 text-white cursor-pointer" asChild>
+              <Badge className="bg-[#007aff] text-white cursor-pointer" asChild>
                 <a
                   href="https://www.canva.com/design/DAG07tm29L4/xbJKxmMfafmMSmP8uvoihw/edit"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <SiCanva />
+                  <Presentation />
                   NASAyers: Vol4 Slide Deck Presentation
                 </a>
               </Badge>

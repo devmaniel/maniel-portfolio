@@ -10,7 +10,8 @@ const Div1 = () => {
       </div>
 
       <p className="h-full pt-5 text-3xl/10 text-black ">
-        Hi, <span className="text-[#007AFF] font-bold">I'm Melco Maniel Gulbe</span>, a software engineer.
+        Hi, <span className="text-[#007AFF] font-bold">I'm Melco Maniel Gulbe</span>, a software engineer at White Cloak
+        Technologies, Inc.
         <br />
         I'm passionate about creative arts, in-depth research, uncovering how things
         work, and crafting efficient solutions.

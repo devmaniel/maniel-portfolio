@@ -2,12 +2,13 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import applePhoto from "../assets/apple_photograph.png";
 
 // Import all photos
+import egovphHackathon from "../assets/photos/egovphhackathon.jpg";
 import melcoGdg from "../assets/photos/melco-gdg.jpg";
 import picture1 from "../assets/photos/picture1.jpg";
 import zmi0Peju from "../assets/photos/Zmi0Peju.jpg";
 
 const Div2 = () => {
-  const photos = [zmi0Peju, melcoGdg, picture1];
+  const photos = [egovphHackathon, zmi0Peju, melcoGdg, picture1];
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);

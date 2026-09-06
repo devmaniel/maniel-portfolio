@@ -20,6 +20,7 @@ import ProjectModal2 from "./components/ProjectModal2";
 import ProjectModal1 from "./components/ProjectModal1";
 import ProjectModal4 from "./components/ProjectModal4";
 import ProjectModal5 from "./components/ProjectModal5";
+import ProjectModal6 from "./components/ProjectModal6";
 
 import LoadingPage from "./components/Loading/LoadingPage";
 
@@ -36,6 +37,7 @@ import nasa_logo from "./assets/certificates/nasa-space-apps-challege-card-logo.
 import nasa_cert from "./assets/certificates/nasa-space-apps-challenge.png";
 import florville_preview from "./assets/florville/florville-small.png";
 import ft_preview from "./assets/finance-tracker-web/finance-smaller-card.png";
+import gala_preview from "./assets/travel-app/gala-thumbnail.png";
 
 import modokard_cover from "./assets/modokard-cover.png";
 import picture1 from "./assets/photos/picture1.jpg";
@@ -60,11 +62,11 @@ import Sample3 from "./assets/brokencodebounty/Sample 4.png";
 import Sample4 from "./assets/brokencodebounty/Sample 5.png";
 
 const projects = [
+  { image: gala_preview, title: "GALA", isUpcoming: false },
   { image: ft_preview, title: "Finance Tracker Web", isUpcoming: false },
   { image: florville_preview, title: "Flòrville", isUpcoming: false },
   { image: modokardpreview, title: "Modokard", isUpcoming: false },
   { image: bbpreview, title: "BrokenCode.Bounty", isUpcoming: false },
-  { image: "", title: "Upcoming", isUpcoming: true },
   { image: "", title: "Upcoming", isUpcoming: true },
 ];
 
@@ -113,10 +115,11 @@ const certificates = [
 ];
 
 const modalComponents = {
-  1: ProjectModal5,
-  2: ProjectModal4,
-  3: ProjectModal1,
-  4: ProjectModal2,
+  1: ProjectModal6,
+  2: ProjectModal5,
+  3: ProjectModal4,
+  4: ProjectModal1,
+  5: ProjectModal2,
 };
 
 function App() {
@@ -172,6 +175,18 @@ function App() {
 
   const openModal = (modalId: number) => setActiveModal(modalId);
   const closeModal = () => setActiveModal(null);
+
+  // close active modal on Escape
+  useEffect(() => {
+    if (activeModal === null) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setActiveModal(null);
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [activeModal]);
 
   const shouldShowLoading = !isLoaded || showLoading;
 
