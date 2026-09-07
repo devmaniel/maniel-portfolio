@@ -2,13 +2,15 @@ import FaultyTerminal from "./FaultyTerminal";
 
 export const DISSOLVE_MS = 700;
 
+const GRID_MUL: [number, number] = [2, 1];
+
 const LoadingPage = ({ exiting = false }: { exiting?: boolean }) => (
   <div className="h-full w-full overflow-hidden bg-white">
     <FaultyTerminal
       lightMode
       tint="#007AFF"
       scale={1.6}
-      gridMul={[2, 1]}
+      gridMul={GRID_MUL}
       digitSize={1.2}
       timeScale={0.4}
       scanlineIntensity={0.4}

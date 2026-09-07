@@ -220,6 +220,11 @@ void main() {
 }
 `;
 
+// iTime = 0 makes every rotate(time * k) an identity matrix, which collapses the
+// fbm into flat axis-aligned bands. Start at a fixed nonzero point instead: same
+// pattern on every load, without the degenerate first frame.
+const TIME_START = 42;
+
 type Vec2 = [number, number];
 
 function hexToRgb(hex: string): [number, number, number] {
@@ -293,9 +298,9 @@ export default function FaultyTerminal({
   const frozenTimeRef = useRef(0);
   const rafRef = useRef(0);
   const loadAnimationStartRef = useRef(0);
+  const startTimeRef = useRef(0);
   const exitingRef = useRef(false);
   const exitStartRef = useRef(0);
-  const timeOffsetRef = useRef(Math.random() * 100);
 
   const tintVec = useMemo(() => hexToRgb(tint), [tint]);
 
@@ -377,12 +382,14 @@ export default function FaultyTerminal({
     const update = (t: number) => {
       rafRef.current = requestAnimationFrame(update);
 
+      if (startTimeRef.current === 0) startTimeRef.current = t;
+
       if (pageLoadAnimation && loadAnimationStartRef.current === 0) {
         loadAnimationStartRef.current = t;
       }
 
       if (!pause) {
-        const elapsed = (t * 0.001 + timeOffsetRef.current) * timeScale;
+        const elapsed = TIME_START + (t - startTimeRef.current) * 0.001 * timeScale;
         program.uniforms.iTime.value = elapsed;
         frozenTimeRef.current = elapsed;
       } else {
@@ -428,7 +435,7 @@ export default function FaultyTerminal({
       if (gl.canvas.parentElement === ctn) ctn.removeChild(gl.canvas);
       gl.getExtension("WEBGL_lose_context")?.loseContext();
       loadAnimationStartRef.current = 0;
-      timeOffsetRef.current = Math.random() * 100;
+      startTimeRef.current = 0;
     };
   }, [
     dpr,
