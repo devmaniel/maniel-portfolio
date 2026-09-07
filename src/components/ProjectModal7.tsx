@@ -1,5 +1,6 @@
 import { Badge } from "./ui/badge";
 import { FaGlobe } from "react-icons/fa";
+import { BiLogoYoutube } from "react-icons/bi";
 import {
   SiNestjs,
   SiNextdotjs,
@@ -62,6 +63,17 @@ const ProjectModal7 = ({ onClose }: ProjectModalProps) => {
               >
                 <FaGlobe />
                 egov-app-ground.vercel.app
+              </a>
+            </Badge>
+
+            <Badge className="bg-red-500 text-white cursor-pointer" asChild>
+              <a
+                href="https://www.youtube.com/watch?v=1HFsW51J-rY&t=1s"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <BiLogoYoutube />
+                Demo Video
               </a>
             </Badge>
           </div>
