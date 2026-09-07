@@ -1,4 +1,5 @@
 import Social_Link_Div from "./Contact Buttons/Social_Link_Div";
+import { Highlighter } from "./ui/highlighter";
 
 const Div1 = () => {
   return (
@@ -10,11 +11,31 @@ const Div1 = () => {
       </div>
 
       <p className="h-full pt-5 text-3xl/10 text-black ">
-        Hi, <span className="text-[#007AFF] font-bold">I'm Melco Maniel Gulbe</span>, a software engineer at White Cloak
-        Technologies, Inc.
+        Hi,{" "}
+        <Highlighter action="highlight" color="#A8D3FF" isView>
+          <span className="text-[#007AFF] font-bold">I'm Melco Maniel Gulbe</span>
+        </Highlighter>
+        , a{" "}
+        <Highlighter action="underline" color="#A34FA6" strokeWidth={2} isView>
+          <span className="font-semibold">software engineer</span>
+        </Highlighter>{" "}
+        at White Cloak Technologies, Inc.
         <br />
         I'm passionate about creative arts, in-depth research, uncovering how things
-        work, and crafting efficient solutions.
+        work, and{" "}
+        <Highlighter
+          action="circle"
+          color="#2BF27E"
+          strokeWidth={3}
+          padding={8}
+          iterations={2}
+          animationDuration={900}
+          multiline={false}
+          isView
+        >
+          <span className="font-semibold">crafting efficient solutions</span>
+        </Highlighter>
+        .
       </p>
 
       <Social_Link_Div />

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 import "./App.css"; // resolve naming problem
 import "./styles/grid-setup-desktop.css";
@@ -13,7 +13,8 @@ import Div2 from "./components/Div2";
 import Div3 from "./components/Div3";
 import Div4 from "./components/Div4";
 import DivProjects from "./components/DivProjects";
-import DivCertificates from "./components/DivCertificates";
+import CertificateCard from "./components/CertificateCard";
+import { CERTIFICATES } from "./data/certificates";
 import Div16 from "./components/Div16";
 
 import ProjectModal2 from "./components/ProjectModal2";
@@ -22,19 +23,12 @@ import ProjectModal4 from "./components/ProjectModal4";
 import ProjectModal5 from "./components/ProjectModal5";
 import ProjectModal6 from "./components/ProjectModal6";
 
-import LoadingPage from "./components/Loading/LoadingPage";
+import LoadingPage, { DISSOLVE_MS } from "./components/Loading/LoadingPage";
 
 // assets
 import samplebg from "./assets/samplebg.png";
 import modokardpreview from "./assets/modokard-preview.png";
 import bbpreview from "./assets/brokencodebounty/bb_preview.png";
-import ibm_svg from "./assets/certificates icon/ibm-logo-svgrepo-com.svg";
-import aws_svg from "./assets/certificates icon/amazon-2-logo-svgrepo-com.svg";
-import google_svg from "./assets/certificates icon/google-2015-logo-svgrepo-com.svg";
-import gdg_svg from "./assets/certificates icon/google-developers-svgrepo-com.svg";
-import ff_svg from "./assets/certificates icon/ffdg_color.svg";
-import nasa_logo from "./assets/certificates/nasa-space-apps-challege-card-logo.png";
-import nasa_cert from "./assets/certificates/nasa-space-apps-challenge.png";
 import florville_preview from "./assets/florville/florville-small.png";
 import ft_preview from "./assets/finance-tracker-web/finance-smaller-card.png";
 import gala_preview from "./assets/travel-app/gala-thumbnail.png";
@@ -70,50 +64,6 @@ const projects = [
   { image: "", title: "Upcoming", isUpcoming: true },
 ];
 
-const certificates = [
-  {
-    certificate_img: nasa_logo,
-    certificate_name: "NASA Space Apps Challenge 2025",
-    certificate_link: nasa_cert,
-    isFull: true,
-  },
-  {
-    certificate_img: aws_svg,
-    certificate_name: "Amazon Junior Software Developer",
-    certificate_link: "https://coursera.org/share/01178ce3db2c9ec64c4457828e91a3a2",
-  },
-  {
-    certificate_img: ibm_svg,
-    certificate_name: "Git and Github Essentials",
-    certificate_link: "https://www.credly.com/badges/4a8f384f-e3a9-49ec-a37a-bf864cd7d527/linked_in_profile",
-  },
-  {
-    certificate_img: aws_svg,
-    certificate_name: "AWS Cloud Technical Essentials",
-    certificate_link: "https://www.coursera.org/account/accomplishments/records/YMMPWZEM9AXC",
-  },
-  {
-    certificate_img: google_svg,
-    certificate_name: "Google UX Design Professional Certificate (v2)",
-    certificate_link: "https://www.credly.com/badges/3a5c5516-9b49-41ee-b1e8-32fb2e8de150/linked_in_profile",
-  },
-  {
-    certificate_img: ibm_svg,
-    certificate_name: "Introduction to DevOps",
-    certificate_link: "https://www.coursera.org/account/accomplishments/verify/MJHYLQ1PLOA0",
-  },
-  {
-    certificate_img: gdg_svg,
-    certificate_name: "InnOlympics: GDSC PLM Hackathon 2025",
-    certificate_link: "https://www.linkedin.com/in/melco-maniel/details/certifications/1741044781658/single-media-viewer/?profileId=ACoAAFCUA3IBV0tT_SeoOtnmN0wsZyE3WGCMJm0",
-  },
-  {
-    certificate_img: ff_svg,
-    certificate_name: "FlutterFlow PH HackFest 2024",
-    certificate_link: "https://www.linkedin.com/in/melco-maniel/details/certifications/1734669641858/single-media-viewer/?profileId=ACoAAFCUA3IBV0tT_SeoOtnmN0wsZyE3WGCMJm0",
-  },
-];
-
 const modalComponents = {
   1: ProjectModal6,
   2: ProjectModal5,
@@ -122,10 +72,14 @@ const modalComponents = {
   5: ProjectModal2,
 };
 
+const WHITE_FADE_MS = 450;
+
 function App() {
   const [activeModal, setActiveModal] = useState<number | null>(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [showLoading, setShowLoading] = useState(true);
+  const [isExiting, setIsExiting] = useState(false);
+  const [isOverlayMounted, setIsOverlayMounted] = useState(true);
 
   // preload all images
   useEffect(() => {
@@ -149,7 +103,7 @@ function App() {
       modokard_slide_6,
       modokard_slide_7,
       modokard_slide_8,
-      ...certificates.map((c) => c.certificate_img),
+      ...CERTIFICATES.map((c) => c.image),
     ];
 
     let loadedCount = 0;
@@ -190,9 +144,19 @@ function App() {
 
   const shouldShowLoading = !isLoaded || showLoading;
 
+  // Two-stage exit: the terminal dissolves cell-by-cell to plain white, then the
+  // white plane fades to reveal the page. Overlay stays mounted for the whole run.
+  useEffect(() => {
+    if (shouldShowLoading) return;
+    setIsExiting(true);
+    const unmount = setTimeout(() => setIsOverlayMounted(false), DISSOLVE_MS + WHITE_FADE_MS);
+    return () => clearTimeout(unmount);
+  }, [shouldShowLoading]);
+
   return (
     <>
-      {/* White Veil Background */}
+      {/* White Veil Background -- unmounted during load so only one WebGL context runs */}
+      {!shouldShowLoading && (
       <div className="fixed inset-0 z-0 w-screen h-screen" style={{ filter: 'invert(1)' }}>
         <DarkVeil 
           hueShift={210}
@@ -204,26 +168,23 @@ function App() {
           resolutionScale={1}
         />
       </div>
+      )}
 
-      {/* AnimatePresence handles exit animation */}
-      <AnimatePresence mode="wait">
-        {shouldShowLoading && (
-          <motion.div
-            key="loading"
-            initial={{ opacity: 1 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0, scale: 0.98, filter: "blur(4px)" }}
-            transition={{
-              opacity: { duration: 1.2, ease: "easeInOut" },
-              scale: { duration: 1, ease: "easeOut" },
-              filter: { duration: 1, ease: "easeOut" },
-            }}
-            className="fixed inset-0 z-[999] bg-white"
-          >
-            <LoadingPage />
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {isOverlayMounted && (
+        <motion.div
+          key="loading"
+          animate={{ opacity: isExiting ? 0 : 1 }}
+          transition={{
+            duration: WHITE_FADE_MS / 1000,
+            ease: "easeInOut",
+            delay: isExiting ? DISSOLVE_MS / 1000 : 0,
+          }}
+          style={{ willChange: "opacity" }}
+          className="fixed inset-0 z-[999] bg-white"
+        >
+          <LoadingPage exiting={isExiting} />
+        </motion.div>
+      )}
 
       {!shouldShowLoading && (
         <main className="relative z-10">
@@ -250,18 +211,12 @@ function App() {
               ))}
             </div>
 
-            {certificates.slice(0, 8).map((cert, idx) => (
-              <div
-                className={`item glass cursor-pointer item${8 + idx}`}
-                key={idx}
-                onClick={() => window.open(cert.certificate_link, "_blank")}
-              >
-                <DivCertificates
-                  certificate_img={cert.certificate_img}
-                  certificate_name={cert.certificate_name}
-                  isFull={cert.isFull}
-                />
-              </div>
+            {CERTIFICATES.slice(0, 8).map((cert, idx) => (
+              <CertificateCard
+                key={cert.name}
+                certificate={cert}
+                className={`item${8 + idx}`}
+              />
             ))}
 
             <div className="item item16 overflow-hidden relative ">
