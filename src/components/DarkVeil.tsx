@@ -18,6 +18,7 @@ uniform float uNoise;
 uniform float uScan;
 uniform float uScanFreq;
 uniform float uWarp;
+uniform float uInvert;
 #define iTime uTime
 #define iResolution uResolution
 
@@ -70,7 +71,8 @@ void main(){
     float scanline_val=sin(gl_FragCoord.y*uScanFreq)*0.5+0.5;
     col.rgb*=1.-(scanline_val*scanline_val)*uScan;
     col.rgb+=(rand(gl_FragCoord.xy+uTime)-0.5)*uNoise;
-    gl_FragColor=vec4(clamp(col.rgb,0.0,1.0),1.0);
+    vec3 outCol=clamp(col.rgb,0.0,1.0);
+    gl_FragColor=vec4(mix(outCol,1.0-outCol,uInvert),1.0);
 }
 `;
 
@@ -82,6 +84,7 @@ type Props = {
   scanlineFrequency?: number;
   warpAmount?: number;
   resolutionScale?: number;
+  invert?: boolean;
 };
 
 export default function DarkVeil({
@@ -91,7 +94,8 @@ export default function DarkVeil({
   speed = 0.5,
   scanlineFrequency = 0,
   warpAmount = 0,
-  resolutionScale = 1
+  resolutionScale = 1,
+  invert = false
 }: Props) {
   const ref = useRef<HTMLCanvasElement>(null);
   useEffect(() => {
@@ -99,7 +103,7 @@ export default function DarkVeil({
     const parent = canvas.parentElement as HTMLElement;
 
     const renderer = new Renderer({
-      dpr: Math.min(window.devicePixelRatio, 2),
+      dpr: 1,
       canvas
     });
 
@@ -116,7 +120,8 @@ export default function DarkVeil({
         uNoise: { value: noiseIntensity },
         uScan: { value: scanlineIntensity },
         uScanFreq: { value: scanlineFrequency },
-        uWarp: { value: warpAmount }
+        uWarp: { value: warpAmount },
+        uInvert: { value: invert ? 1 : 0 }
       }
     });
 
@@ -142,16 +147,24 @@ export default function DarkVeil({
       program.uniforms.uScan.value = scanlineIntensity;
       program.uniforms.uScanFreq.value = scanlineFrequency;
       program.uniforms.uWarp.value = warpAmount;
+      program.uniforms.uInvert.value = invert ? 1 : 0;
       renderer.render({ scene: mesh });
       frame = requestAnimationFrame(loop);
     };
 
+    const handleVisibility = () => {
+      cancelAnimationFrame(frame);
+      if (!document.hidden) loop();
+    };
+
+    document.addEventListener('visibilitychange', handleVisibility);
     loop();
 
     return () => {
       cancelAnimationFrame(frame);
       window.removeEventListener('resize', resize);
+      document.removeEventListener('visibilitychange', handleVisibility);
     };
-  }, [hueShift, noiseIntensity, scanlineIntensity, speed, scanlineFrequency, warpAmount, resolutionScale]);
+  }, [hueShift, noiseIntensity, scanlineIntensity, speed, scanlineFrequency, warpAmount, resolutionScale, invert]);
   return <canvas ref={ref} className="darkveil-canvas" />;
 }

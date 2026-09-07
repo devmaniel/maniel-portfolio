@@ -157,7 +157,7 @@ function App() {
     <>
       {/* White Veil Background -- unmounted during load so only one WebGL context runs */}
       {!shouldShowLoading && (
-      <div className="fixed inset-0 z-0 w-screen h-screen" style={{ filter: 'invert(1)' }}>
+      <div className="fixed inset-0 z-0">
         <DarkVeil 
           hueShift={210}
           noiseIntensity={0.02}
@@ -165,7 +165,8 @@ function App() {
           speed={0.3}
           scanlineFrequency={0.5}
           warpAmount={0.5}
-          resolutionScale={1}
+          resolutionScale={0.5}
+          invert
         />
       </div>
       )}
