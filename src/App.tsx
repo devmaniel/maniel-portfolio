@@ -22,6 +22,7 @@ import ProjectModal1 from "./components/ProjectModal1";
 import ProjectModal4 from "./components/ProjectModal4";
 import ProjectModal5 from "./components/ProjectModal5";
 import ProjectModal6 from "./components/ProjectModal6";
+import ProjectModal7 from "./components/ProjectModal7";
 
 import LoadingPage, { DISSOLVE_MS } from "./components/Loading/LoadingPage";
 
@@ -32,6 +33,7 @@ import bbpreview from "./assets/brokencodebounty/bb_preview.png";
 import florville_preview from "./assets/florville/florville-small.png";
 import ft_preview from "./assets/finance-tracker-web/finance-smaller-card.png";
 import gala_preview from "./assets/travel-app/gala-thumbnail.png";
+import ehelp_logo from "./assets/ehelp/ehelp-logo.png";
 
 import modokard_cover from "./assets/modokard-cover.png";
 import picture1 from "./assets/photos/picture1.jpg";
@@ -56,20 +58,26 @@ import Sample3 from "./assets/brokencodebounty/Sample 4.png";
 import Sample4 from "./assets/brokencodebounty/Sample 5.png";
 
 const projects = [
-  { image: gala_preview, title: "GALA", isUpcoming: false },
-  { image: ft_preview, title: "Finance Tracker Web", isUpcoming: false },
-  { image: florville_preview, title: "Flòrville", isUpcoming: false },
-  { image: modokardpreview, title: "Modokard", isUpcoming: false },
-  { image: bbpreview, title: "BrokenCode.Bounty", isUpcoming: false },
-  { image: "", title: "Upcoming", isUpcoming: true },
+  { image: gala_preview, title: "GALA" },
+  {
+    image: ehelp_logo,
+    title: "EHELP",
+    imageBg: "#0B1220",
+    label: "Web & Mobile Project",
+  },
+  { image: ft_preview, title: "Finance Tracker Web" },
+  { image: florville_preview, title: "Flòrville" },
+  { image: modokardpreview, title: "Modokard" },
+  { image: bbpreview, title: "BrokenCode.Bounty" },
 ];
 
 const modalComponents = {
   1: ProjectModal6,
-  2: ProjectModal5,
-  3: ProjectModal4,
-  4: ProjectModal1,
-  5: ProjectModal2,
+  2: ProjectModal7,
+  3: ProjectModal5,
+  4: ProjectModal4,
+  5: ProjectModal1,
+  6: ProjectModal2,
 };
 
 const WHITE_FADE_MS = 450;
@@ -197,16 +205,14 @@ function App() {
 
             <div className="blue-row">
               {projects.map((project, idx) => (
-                <div
-                  className={`item glass${project.isUpcoming ? " upcoming-card" : ""}`}
-                  key={idx}
-                >
+                <div className="item glass" key={idx}>
                   <DivProjects
                     project_image={project.image}
                     project_title={project.title}
                     project_id={idx + 1}
                     openModal={openModal}
-                    isUpcoming={project.isUpcoming}
+                    project_image_bg={project.imageBg}
+                    project_label={project.label}
                   />
                 </div>
               ))}
