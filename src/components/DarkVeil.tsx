@@ -103,7 +103,7 @@ export default function DarkVeil({
     const parent = canvas.parentElement as HTMLElement;
 
     const renderer = new Renderer({
-      dpr: 1,
+      dpr: Math.min(window.devicePixelRatio, 2),
       canvas
     });
 

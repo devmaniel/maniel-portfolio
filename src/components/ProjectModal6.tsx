@@ -41,7 +41,7 @@ const ProjectModal6 = ({ onClose }: ProjectModalProps) => {
       onClick={onClose}
     >
       <div className="flex justify-center px-5 py-10" onClick={(e) => e.stopPropagation()}>
-        <div className="w-[300px] md:w-[700px] lg:w-[1100px] bg-white p-5 flex flex-col gap-5 rounded-lg">
+        <div className="w-[300px] md:w-[700px] lg:w-[1100px] max-w-[calc(100vw-40px)] bg-white p-5 flex flex-col gap-5 rounded-lg">
           <p
             className="text-md text-[#FF474C] cursor-pointer hover:underline"
             onClick={onClose}

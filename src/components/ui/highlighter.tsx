@@ -49,7 +49,6 @@ export function Highlighter({
   useLayoutEffect(() => {
     const element = elementRef.current
     let annotation: RoughAnnotation | null = null
-    let resizeObserver: ResizeObserver | null = null
 
     if (shouldShow && element) {
       const annotationConfig = {
@@ -62,24 +61,14 @@ export function Highlighter({
         multiline,
       }
 
-      const currentAnnotation = annotate(element, annotationConfig)
-      annotation = currentAnnotation
-      currentAnnotation.show()
-
-      resizeObserver = new ResizeObserver(() => {
-        currentAnnotation.hide()
-        currentAnnotation.show()
-      })
-
-      resizeObserver.observe(element)
-      resizeObserver.observe(document.body)
+      // rough-notation attaches its own debounced resize/ResizeObserver handling
+      // and re-renders without animation, so no extra observer here.
+      annotation = annotate(element, annotationConfig)
+      annotation.show()
     }
 
     return () => {
       annotation?.remove()
-      if (resizeObserver) {
-        resizeObserver.disconnect()
-      }
     }
   }, [
     shouldShow,

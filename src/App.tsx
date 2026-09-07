@@ -165,7 +165,7 @@ function App() {
           speed={0.3}
           scanlineFrequency={0.5}
           warpAmount={0.5}
-          resolutionScale={0.5}
+          resolutionScale={1}
           invert
         />
       </div>

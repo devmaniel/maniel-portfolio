@@ -24,7 +24,7 @@ const CertificateCard = ({ certificate, className }: CertificateCardProps) => {
           alt={name}
         />
 
-        <div className="h-30 w-full flex justify-center py-2">
+        <div className="w-full flex justify-center py-2">
           <h1 className="text-sm font-bold text-center">{name}</h1>
         </div>
       </div>

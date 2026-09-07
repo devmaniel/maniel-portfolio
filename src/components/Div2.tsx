@@ -5,10 +5,11 @@ import applePhoto from "../assets/apple_photograph.png";
 import egovphHackathon from "../assets/photos/egovphhackathon.jpg";
 import melcoGdg from "../assets/photos/melco-gdg.jpg";
 import picture1 from "../assets/photos/picture1.jpg";
-import zmi0Peju from "../assets/photos/Zmi0Peju.jpg";
+import photo2 from "../assets/photos/photo2.jpg";
+import photo3 from "../assets/photos/photo3.jpg";
 
 const Div2 = () => {
-  const photos = [egovphHackathon, zmi0Peju, melcoGdg, picture1];
+  const photos = [egovphHackathon, photo2, photo3, melcoGdg, picture1];
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
