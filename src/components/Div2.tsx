@@ -7,9 +7,11 @@ import melcoGdg from "../assets/photos/melco-gdg.jpg";
 import picture1 from "../assets/photos/picture1.jpg";
 import photo2 from "../assets/photos/photo2.jpg";
 import photo3 from "../assets/photos/photo3.jpg";
+import egovphAward from "../assets/photos/1789970157951.jpg";
+import whitecloakTeam from "../assets/photos/1789874572190.jpg";
 
 const Div2 = () => {
-  const photos = [egovphHackathon, photo2, photo3, melcoGdg, picture1];
+  const photos = [egovphAward, whitecloakTeam, egovphHackathon, photo2, photo3, melcoGdg, picture1];
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);

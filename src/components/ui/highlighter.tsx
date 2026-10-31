@@ -2,7 +2,7 @@ import { useLayoutEffect, useRef } from "react"
 import type React from "react"
 import { useInView } from "motion/react"
 import { annotate } from "rough-notation"
-import { type RoughAnnotation } from "rough-notation/lib/model"
+import { type RoughAnnotation, type RoughPadding } from "rough-notation/lib/model"
 
 type AnnotationAction =
   | "highlight"
@@ -20,7 +20,7 @@ interface HighlighterProps {
   strokeWidth?: number
   animationDuration?: number
   iterations?: number
-  padding?: number
+  padding?: RoughPadding
   multiline?: boolean
   isView?: boolean
 }
@@ -61,13 +61,26 @@ export function Highlighter({
         multiline,
       }
 
-      // rough-notation attaches its own debounced resize/ResizeObserver handling
-      // and re-renders without animation, so no extra observer here.
       annotation = annotate(element, annotationConfig)
       annotation.show()
     }
 
+    // The annotated span is inline (so it wraps with the sentence), and a
+    // ResizeObserver can't see inline boxes. Watch the paragraph instead and
+    // redraw (without animation) when its layout changes.
+    const block = element?.parentElement?.parentElement
+    let isFirstCallback = true
+    const observer = new ResizeObserver(() => {
+      if (isFirstCallback) {
+        isFirstCallback = false
+        return
+      }
+      if (annotation?.isShowing()) annotation.show()
+    })
+    if (annotation && block) observer.observe(block)
+
     return () => {
+      observer.disconnect()
       annotation?.remove()
     }
   }, [
@@ -84,9 +97,13 @@ export function Highlighter({
   // rough-notation inserts its SVG as a sibling of the annotated element. The outer
   // span keeps that SVG anchored to the text (so it moves with it on zoom/reflow) and,
   // as its own stacking context, lets the SVG sit behind the text.
+  // Multiline marks (highlight, underline) stay inline so they wrap with the sentence;
+  // single-shape marks (circle, box) wrap the phrase as one block so the shape
+  // surrounds just the phrase instead of every line it touches.
+  const display = multiline ? "" : "inline-block whitespace-normal"
   return (
-    <span className="relative inline-block isolate [&>.rough-annotation]:-z-10">
-      <span ref={elementRef} className="relative inline-block bg-transparent">
+    <span className={`relative isolate [&>.rough-annotation]:-z-10 ${display}`}>
+      <span ref={elementRef} className={`relative bg-transparent ${display}`}>
         {children}
       </span>
     </span>

@@ -46,22 +46,20 @@
     grid-row: 4;
   }
 
-  /* Red section: 4 items, 1 per row */
-  .item8 {
-    grid-row: 6;
-  }
-  .item9 {
-    grid-row: 7;
-  }
-  .item10 {
-    grid-row: 8;
-  }
-  .item11 {
-    grid-row: 9;
-  }
+  /* Red section: 8 certificates, 1 per row. `.grid-container >` outranks the
+     2-column placement in grid-setup-tablet.css, which also matches here. */
+  .grid-container > .item8 { grid-column: 1; grid-row: 6; }
+  .grid-container > .item9 { grid-column: 1; grid-row: 7; }
+  .grid-container > .item10 { grid-column: 1; grid-row: 8; }
+  .grid-container > .item11 { grid-column: 1; grid-row: 9; }
+  .grid-container > .item12 { grid-column: 1; grid-row: 10; }
+  .grid-container > .item13 { grid-column: 1; grid-row: 11; }
+  .grid-container > .item14 { grid-column: 1; grid-row: 12; }
+  .grid-container > .item15 { grid-column: 1; grid-row: 13; }
 
   /* Yellow section */
-  .item16 {
-    grid-row: 10;
+  .grid-container > .item16 {
+    grid-column: 1;
+    grid-row: 14;
   }
 }

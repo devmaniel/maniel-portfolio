@@ -23,19 +23,22 @@ const Div1 = () => {
         <br />
         I'm passionate about creative arts, in-depth research, uncovering how things
         work, and{" "}
-        <Highlighter
-          action="circle"
-          color="#2BF27E"
-          strokeWidth={3}
-          padding={8}
-          iterations={2}
-          animationDuration={900}
-          multiline={false}
-          isView
-        >
-          <span className="font-semibold">crafting efficient solutions</span>
-        </Highlighter>
-        .
+        {/* nowrap keeps the period on the same line as the circled phrase */}
+        <span className="whitespace-nowrap">
+          <Highlighter
+            action="circle"
+            color="#2BF27E"
+            strokeWidth={3}
+            padding={[2, 8]}
+            iterations={2}
+            animationDuration={900}
+            multiline={false}
+            isView
+          >
+            <span className="font-semibold">crafting efficient solutions</span>
+          </Highlighter>
+          .
+        </span>
       </p>
 
       <Social_Link_Div />
