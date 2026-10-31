@@ -81,9 +81,14 @@ export function Highlighter({
     multiline,
   ])
 
+  // rough-notation inserts its SVG as a sibling of the annotated element. The outer
+  // span keeps that SVG anchored to the text (so it moves with it on zoom/reflow) and,
+  // as its own stacking context, lets the SVG sit behind the text.
   return (
-    <span ref={elementRef} className="relative inline-block bg-transparent">
-      {children}
+    <span className="relative inline-block isolate [&>.rough-annotation]:-z-10">
+      <span ref={elementRef} className="relative inline-block bg-transparent">
+        {children}
+      </span>
     </span>
   )
 }
