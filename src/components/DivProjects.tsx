@@ -13,7 +13,7 @@ const DivProjects = ({ project_image, project_title, project_id, openModal, proj
       <div className="relative">
         <img
           src={project_image}
-          className={`h-48 border border-black rounded-lg aspect-3/2 w-full ${project_image_bg ? "object-contain p-8" : "object-cover"}`}
+          className={`border border-black rounded-lg aspect-3/2 w-full ${project_image_bg ? "object-contain p-8" : "object-cover"}`}
           style={project_image_bg ? { backgroundColor: project_image_bg } : undefined}
           alt={project_title}
         />

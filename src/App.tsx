@@ -23,6 +23,9 @@ import ProjectModal4 from "./components/ProjectModal4";
 import ProjectModal5 from "./components/ProjectModal5";
 import ProjectModal6 from "./components/ProjectModal6";
 import ProjectModal7 from "./components/ProjectModal7";
+import ProjectModal8 from "./components/ProjectModal8";
+import ProjectModal9 from "./components/ProjectModal9";
+import ProjectModal10 from "./components/ProjectModal10";
 
 import LoadingPage, { DISSOLVE_MS } from "./components/Loading/LoadingPage";
 
@@ -34,6 +37,9 @@ import florville_preview from "./assets/florville/florville-small.png";
 import ft_preview from "./assets/finance-tracker-web/finance-smaller-card.png";
 import gala_preview from "./assets/travel-app/gala-thumbnail.png";
 import ehelp_logo from "./assets/ehelp/ehelp-logo.png";
+import omoide_cover from "./assets/omoide/omoide-cover.jpg";
+import chap_cover from "./assets/chap/chap-cover.jpg";
+import nook_cover from "./assets/nook/nook-cover.jpg";
 
 import modokard_cover from "./assets/modokard-cover.png";
 import picture1 from "./assets/photos/picture1.jpg";
@@ -57,18 +63,23 @@ import Sample2 from "./assets/brokencodebounty/Sample 2.png";
 import Sample3 from "./assets/brokencodebounty/Sample 4.png";
 import Sample4 from "./assets/brokencodebounty/Sample 5.png";
 
+// newest first; id links a card to its entry in modalComponents
 const projects = [
-  { image: gala_preview, title: "GALA" },
+  { id: 9, image: omoide_cover, title: "Omoide", label: "Mobile Project" },
+  { id: 8, image: chap_cover, title: "Chap", label: "Mobile Project" },
+  { id: 7, image: nook_cover, title: "Nook", label: "Web & Mobile Project" },
+  { id: 1, image: gala_preview, title: "GALA" },
   {
+    id: 2,
     image: ehelp_logo,
     title: "EHELP",
     imageBg: "#0B1220",
     label: "Web & Mobile Project",
   },
-  { image: ft_preview, title: "Finance Tracker Web" },
-  { image: florville_preview, title: "Flòrville" },
-  { image: modokardpreview, title: "Modokard" },
-  { image: bbpreview, title: "BrokenCode.Bounty" },
+  { id: 3, image: ft_preview, title: "Finance Tracker Web" },
+  { id: 4, image: florville_preview, title: "Flòrville" },
+  { id: 5, image: modokardpreview, title: "Modokard" },
+  { id: 6, image: bbpreview, title: "BrokenCode.Bounty" },
 ];
 
 const modalComponents = {
@@ -78,6 +89,9 @@ const modalComponents = {
   4: ProjectModal4,
   5: ProjectModal1,
   6: ProjectModal2,
+  7: ProjectModal8,
+  8: ProjectModal9,
+  9: ProjectModal10,
 };
 
 const WHITE_FADE_MS = 450;
@@ -204,12 +218,12 @@ function App() {
             <Div4 />
 
             <div className="blue-row">
-              {projects.map((project, idx) => (
-                <div className="item glass" key={idx}>
+              {projects.map((project) => (
+                <div className="item glass" key={project.id}>
                   <DivProjects
                     project_image={project.image}
                     project_title={project.title}
-                    project_id={idx + 1}
+                    project_id={project.id}
                     openModal={openModal}
                     project_image_bg={project.imageBg}
                     project_label={project.label}
