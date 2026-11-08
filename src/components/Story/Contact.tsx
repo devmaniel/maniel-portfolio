@@ -63,7 +63,7 @@ export default function Contact() {
           <CopyHint />
           <CopyEmailButton />
         </span>
-        <a className="pill" href="https://www.linkedin.com/in/devmaniel" target="_blank" rel="noopener noreferrer">
+        <a className="pill" href="https://www.linkedin.com/in/melco-maniel/" target="_blank" rel="noopener noreferrer">
           LinkedIn ↗
         </a>
         <a className="pill" href="https://github.com/devmaniel" target="_blank" rel="noopener noreferrer">

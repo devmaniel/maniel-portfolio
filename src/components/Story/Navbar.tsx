@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 import { ArrowUpRight } from "./doodles";
 
-const LINKEDIN_URL = "https://www.linkedin.com/in/devmaniel";
+const LINKEDIN_URL = "https://www.linkedin.com/in/melco-maniel/";
 const SCROLLED_AFTER_PX = 40;
 // a section counts as "current" while it crosses a thin band just above the middle of the screen
 const ACTIVE_BAND = "-40% 0px -55% 0px";
