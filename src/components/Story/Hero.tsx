@@ -1,7 +1,6 @@
 import clsx from "clsx";
 
 import { cssVars } from "./cssVars";
-import { Mark, WaveMark } from "./doodles";
 import { useReveal } from "./useReveal";
 
 const BRICK_ROWS = [
@@ -9,9 +8,6 @@ const BRICK_ROWS = [
   { row: "r2", word: "right.", color: "purple" },
   { row: "r3", word: "feel.", color: "green feel" },
 ] as const;
-
-const WAVE_PATH =
-  "M3 15 C 16 15, 24 5, 42 5 S 66 19, 86 19 S 112 5, 132 5 S 160 17, 184 16 S 280 12, 330 9 S 384 5, 397 3";
 
 function Bricks() {
   const { ref, isOn } = useReveal<HTMLHeadingElement>();
@@ -88,12 +84,7 @@ export default function Hero() {
     <section className="wrap hero">
       <Bricks />
       <p className="intro">
-        Hi, <Mark variant="name">I'm Melco Maniel Gulbe,</Mark> a{" "}
-        <WaveMark path={WAVE_PATH}>software engineer</WaveMark> at White Cloak Technologies, and a{" "}
-        <Mark variant="circ" className="nw">
-          product engineer
-        </Mark>{" "}
-        the rest of the time.
+        Hi, <strong>I'm Melco Maniel Gulbe,</strong> a <strong>software engineer</strong>, and a <strong className="nw">product engineer</strong> the rest of the time.
       </p>
       <Pointer />
       <WhatIBuild />
