@@ -48,7 +48,7 @@ export default function Numbers() {
       </Hop>
       <div className="stat">
         <div className="stat-block purple">
-          <RollingNumber value="15 events" label="15 events" />
+          <RollingNumber value="16 events" label="16 events" />
         </div>
         <span className="cap blue">Hackathons entered, 2024 to 2026</span>
       </div>

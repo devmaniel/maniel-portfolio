@@ -1,4 +1,7 @@
 // Projects on the story page: the grid card, and the full story shown in the popup.
+import aniCover from "../assets/ani/ani-cover.jpg";
+import aniShot1 from "../assets/ani/ani-shot-1.webp";
+import aniShot2 from "../assets/ani/ani-shot-2.webp";
 import bbCard from "../assets/brokencodebounty/bb_preview.png";
 import bbCover from "../assets/brokencodebounty/brokencountbounty.png";
 import bbShot1 from "../assets/brokencodebounty/bb-shot-1.jpg";
@@ -67,6 +70,31 @@ const shots = (sources: string[], width: number, heights: number[]): ProjectImag
   sources.map((src, index) => ({ src, width, height: heights[index] }));
 
 export const STORY_PROJECTS: StoryProject[] = [
+  {
+    id: "ani",
+    name: "Ani",
+    cardType: "Web",
+    cardLine: "Know when to plant, from NASA data.",
+    card: { src: aniCover, width: 1200, height: 800 },
+    cover: { src: aniCover, width: 1200, height: 800 },
+    popupType: "Web · Built for NASA Space Apps Challenge 2026",
+    lede: "Harvest tomorrow, planned today.",
+    links: [
+      { label: "Live app", href: "https://nasa-ani-app.vercel.app" },
+      { label: "GitHub", href: "https://github.com/devmaniel/nasa-ani-app" },
+    ],
+    stack: ["React", "TypeScript", "Vite", "TanStack Router", "Tailwind CSS", "shadcn/ui", "MapLibre GL", "Recharts", "NASA POWER", "NASA MODIS"],
+    intro:
+      "One wrong planting month can wipe out a farmer's whole season, and the seasons are shifting. Ani is a map-based weather and planting companion for the Philippines. Pick a place and a stretch of dates, and Ani shows the weather there — what was measured, what is forecast, and what is usual — then turns it into which crops suit those dates and when to plant them.",
+    sections: [
+      { heading: "See the weather on a map", paragraphs: ["Rain, heat, soil, humidity, sun and plant greenness, from 1981 up to three years ahead. Turn on a layer and press play to watch the land change colour month by month. Every month says what kind of number it is: measured, forecast, or the usual for that month."] },
+      { heading: "Know what to plant, and when", paragraphs: ["Fourteen local crops, from rice and corn to pechay and ampalaya, each rated for your dates and your land: good to plant, plant with care, or not a good time. You get the best month to plant and the month it's ready."] },
+      { heading: "Your season on one page", paragraphs: ["The full report puts it all together: the short answer first, then what's ahead month by month, your best moves, what to plant, and the farm work for each month."] },
+      { heading: "Evidence, not orders", paragraphs: ["Ani doesn't make decisions for farmers. It shows the evidence so they can decide. It stores nothing about you, and only asks for your location when you press “Use my location”."] },
+      { heading: "Under the hood", paragraphs: ["Built by a team of three for the NASA Space Apps Challenge 2026 (Adapting Farms with NASA Data). A React + TypeScript web app on Vite, with TanStack Router, Tailwind CSS v4 and shadcn/ui, MapLibre GL for the map and Recharts for the charts. Measured weather and each month's usual come from NASA POWER, plant greenness from NASA MODIS, the coming months from the Open-Meteo seasonal forecast, and what each crop needs from FAO ECOCROP and GAEZ."] },
+    ],
+    shots: { images: shots([aniShot1, aniShot2], 2048, [1280, 1280]) },
+  },
   {
     id: "omoide",
     name: "Omoide",

@@ -3,7 +3,7 @@
 export type HackathonResult =
   | { kind: "win"; label: "Won" }
   | { kind: "top"; label: string }
-  | { kind: "live"; label: "Judging" }
+  | { kind: "live"; label: "Judging" | "Building" }
   | { kind: "wait"; label: "Submitted" | "Pending" };
 
 export type Hackathon = {
@@ -24,11 +24,13 @@ export const HACKATHON_YEARS: HackathonYear[] = [
   {
     year: 2026,
     events: [
-      { event: "NASA Space Apps Challenge 2026", where: "Local event", registered: "Not yet published", result: { kind: "live", label: "Judging" } },
-      { event: "Shipaton Manila 2026 · Mini Hackathon", where: "Pasig", registered: "88", result: { kind: "win", label: "Won" } },
       { event: "eGovPH Hackathon 2026 · DICT", where: "Taguig", registered: "1,500+ · 137 teams", result: { kind: "top", label: "Top 10" } },
+      { event: "Shipaton Manila 2026 · Mini Hackathon", where: "Pasig", registered: "88", result: { kind: "win", label: "Won" } },
       { event: "AppBuildersPH Hackathon 2026", where: "Philippines", registered: "1,270", result: SUBMITTED },
-      { event: "Build, Ship, Shape · Amazon Developer Hackathon", where: "Online", registered: "35,466", result: { kind: "wait", label: "Pending" } },
+      { event: "Build, Ship, Shape · Amazon Developer Hackathon", where: "Online", registered: "35,430", result: SUBMITTED },
+      { event: "Build With AI: Basics", where: "Online", registered: "5,093", result: SUBMITTED },
+      { event: "NASA Space Apps Challenge 2026", where: "Local event", registered: "Not yet published", result: SUBMITTED },
+      { event: "Reddit's Game of the Day Hackathon", where: "Online", registered: "2,060", result: { kind: "live", label: "Building" } },
     ],
   },
   {
@@ -41,7 +43,6 @@ export const HACKATHON_YEARS: HackathonYear[] = [
       { event: "GKE Turns 10 Hackathon", where: "Online", registered: "4,707", result: SUBMITTED },
       { event: "AWS Lambda Hackathon", where: "Online", registered: "3,713", result: SUBMITTED },
       { event: "AI Accelerate · Google Cloud", where: "Online", registered: "2,730", result: SUBMITTED },
-      { event: "Build With AI: Basics", where: "Online", registered: "5,096", result: SUBMITTED },
       { event: "InnOlympics 2025 · GDSC PLM Hackathon", where: "Makati", registered: "122", result: SUBMITTED },
     ],
   },
