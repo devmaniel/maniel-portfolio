@@ -1,5 +1,6 @@
 // Certificates shown as pills on the story page. Each one links to its proof.
 import nasaCertificate from "../assets/certificates/nasa-space-apps-challenge.png";
+import nasaCertificate2026 from "../assets/certificates/nasa-space-apps-challenge-2026.jpeg";
 import awsLogo from "../assets/story/certs/aws.svg";
 import flutterflowLogo from "../assets/story/certs/flutterflow.svg";
 import gdscLogo from "../assets/story/certs/gdsc.svg";
@@ -25,6 +26,11 @@ const AWS: CertificateLogo = { src: awsLogo, width: 42, height: 13, shape: "wide
 const IBM: CertificateLogo = { src: ibmLogo, width: 31, height: 12, shape: "wide" };
 
 export const STORY_CERTIFICATES: StoryCertificate[] = [
+  {
+    name: "NASA Space Apps Challenge 2026",
+    href: nasaCertificate2026,
+    logo: { src: nasaLogo, width: 38, height: 38, shape: "photo" },
+  },
   {
     name: "NASA Space Apps Challenge 2025",
     href: nasaCertificate,

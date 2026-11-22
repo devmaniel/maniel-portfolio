@@ -5,6 +5,7 @@ import gdg_svg from "../assets/certificates icon/google-developers-svgrepo-com.s
 import ff_svg from "../assets/certificates icon/ffdg_color.svg";
 import nasa_logo from "../assets/certificates/nasa-space-apps-challege-card-logo.png";
 import nasa_cert from "../assets/certificates/nasa-space-apps-challenge.png";
+import nasa_cert_2026 from "../assets/certificates/nasa-space-apps-challenge-2026.jpeg";
 
 export type Certificate = {
   image: string;
@@ -14,6 +15,12 @@ export type Certificate = {
 };
 
 export const CERTIFICATES: Certificate[] = [
+  {
+    image: nasa_logo,
+    name: "NASA Space Apps Challenge 2026",
+    link: nasa_cert_2026,
+    isFull: true,
+  },
   {
     image: nasa_logo,
     name: "NASA Space Apps Challenge 2025",
