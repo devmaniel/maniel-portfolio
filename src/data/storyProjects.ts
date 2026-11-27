@@ -30,6 +30,7 @@ import galaCard from "../assets/travel-app/gala-card.jpg";
 import galaCover from "../assets/travel-app/gala-cover.jpg";
 import galaShot1 from "../assets/travel-app/gala-square-1.png";
 import galaShot2 from "../assets/travel-app/gala-square-2.png";
+import traceCover from "../assets/trace/trace-cover.jpg";
 
 export type ProjectImage = {
   src: string;
@@ -70,6 +71,26 @@ const shots = (sources: string[], width: number, heights: number[]): ProjectImag
   sources.map((src, index) => ({ src, width, height: heights[index] }));
 
 export const STORY_PROJECTS: StoryProject[] = [
+  {
+    id: "trace",
+    name: "Trace",
+    cardType: "Developer tool",
+    cardLine: "Remembers why the work left the plan.",
+    card: { src: traceCover, width: 1200, height: 800 },
+    cover: { src: traceCover, width: 1200, height: 800 },
+    popupType: "Developer tool · Building for Relate by Neo4j Hackathon",
+    lede: "The code stays. The reason gets lost.",
+    links: [],
+    stack: ["Python", "Relate", "Cypher", "Claude Code plugin", "Claude Code hooks"],
+    intro:
+      "When you work with a coding assistant, the code stays in the repo but the reason behind it stays in the chat. A new session doesn't see it, and days later git shows the edit, an old chat holds the why, and the doc still describes the original plan. Trace saves each time the work departed from the plan, so you can ask about it later.",
+    sections: [
+      { heading: "Saves in the background", paragraphs: ["When a turn ends, Trace saves what the plan said, what was built instead, why, your exact words, and the files and tests built on it. You never stop to fill anything in."] },
+      { heading: "Ask a normal question", paragraphs: ["Later, in any session, ask “what happened to login?” or “why did I use a mock here?”. You get the reason in your own words, what depends on it, and which document sections are now out of date."] },
+      { heading: "Your words, not a summary", paragraphs: ["Every quote must appear word for word in what you said. If a reason was never given, Trace says so instead of making one up. If it's unsure, nothing is saved."] },
+      { heading: "Under the hood", paragraphs: ["Being built for the Relate by Neo4j Hackathon (Nov 11 – Dec 11, 2026). A small Python command plus a Claude Code plugin. Memory lives in a Relate graph store on your machine, one per project, and recall follows a short, fixed walk through the links in Cypher, with no model call."] },
+    ],
+  },
   {
     id: "ani",
     name: "Ani",

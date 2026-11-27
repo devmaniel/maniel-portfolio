@@ -24,6 +24,7 @@ export const HACKATHON_YEARS: HackathonYear[] = [
   {
     year: 2026,
     events: [
+      { event: "Relate by Neo4j Hackathon", where: "Online", registered: "—", result: { kind: "live", label: "Building" } },
       { event: "Reddit's Game of the Day Hackathon", where: "Online", registered: "2,060", result: { kind: "live", label: "Building" } },
       { event: "NASA Space Apps Challenge 2026", where: "Local event", registered: "Not yet published", result: SUBMITTED },
       { event: "Build With AI: Basics", where: "Online", registered: "5,093", result: SUBMITTED },
